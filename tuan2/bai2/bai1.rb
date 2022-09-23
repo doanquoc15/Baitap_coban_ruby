@@ -1,12 +1,12 @@
 class Student
     @name;
-    @code;
+    @age;
     @maths;
     @physical;
     @chemistry;
-    def initialize(name, code, maths, physical, chemistry)
+    def initialize(name, age, maths, physical, chemistry)
         @name = name;
-        @code = code;
+        @age = age;
         @maths = maths;
         @physical = physical;
         @chemistry = chemistry;
@@ -19,12 +19,12 @@ class Student
         @name = name
     end
 
-    def code
-        @code
+    def age
+        @age
       end
       # Định nghĩa setter để cập nhật biến
-    def code=(code)
-        @code = code
+    def age=(age)
+        @age = age
     end
 
     def maths
@@ -57,7 +57,7 @@ class Student
     end
 
     def toString # định nghĩa phương thức instance
-        puts "Name : #{name}Code : #{code}Average #{average}"
+        puts "Name : #{name}age : #{age}Average #{average}"
     end
 end
 
