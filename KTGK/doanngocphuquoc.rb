@@ -207,7 +207,7 @@ while true
                 when 3
                     puts"Nhap bien so:"
                     bs = gets.chomp
-                    main.searchBS(bs)
+                    main.searchBSX(bs)
                 else
                     puts "Khong hop le"
             end
