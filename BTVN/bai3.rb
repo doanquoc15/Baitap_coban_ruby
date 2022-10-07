@@ -97,7 +97,7 @@ class CandidateC < Candidate
     end
 end
 
-#main
+
 class Main 
     def initialize()
         @items = []
