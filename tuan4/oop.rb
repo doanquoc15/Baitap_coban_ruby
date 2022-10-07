@@ -1,4 +1,4 @@
-# can bo
+ # can bo
 class CanBo
     attr_accessor :name_245, :age_245, :gender_245, :address_245
     def initialize(name_245, age_245, gender_245, address_245)
