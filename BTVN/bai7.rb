@@ -15,7 +15,7 @@ class Teacher
         puts "Nhap id:"
         @id = gets.to_i
         puts "Nhap ten:"
-        @name = gets.to_s
+        @name = gets.chomp
         puts "Nhap tuoi:"
         @age = gets.to_i
         puts "Nhap luong cung:"
@@ -25,7 +25,7 @@ class Teacher
         puts "Nhap tien phat:"
         @penaty = gets.to_f
         puts "Nhap que quan:"
-        @hometown = gets.to_s
+        @hometown = gets.chomp
     end
 
     def display
@@ -53,9 +53,12 @@ class ManagementTeacher < Teacher
         @teachers.each{|item| item.display}
     end
 
-    def find(id)
-        result = @teachers.select{|item| item.id == id}
-        result.each{|item| puts item.display}
+    def delete(iD)
+        for item in @teachers do
+            if(item.id == iD)
+                @teachers.delete(item)
+            end
+        end
     end
 
     def calculator(id_1)
@@ -88,12 +91,14 @@ while true
             managerTeacher.displayAll
         when 3
             puts"Nhap id cua gia vien muon xoa"
-            ID = gets.to_i
-            managerTeacher.find(ID)
+            iD1 = gets.to_i
+            managerTeacher.delete(iD1)
+            puts"Danh sach GV sau khi xoa:"
+            managerTeacher.displayAll
         when 4
-            puts"Nhap id cua gia vien muon xoa"
-            ID = gets.to_i
-            puts managerTeacher.calculator(ID)
+            puts"Nhap iD cua gia vien can tinh luong"
+            iD2 = gets.to_i
+            puts managerTeacher.calculator(iD2)
         when 5
             break
         else

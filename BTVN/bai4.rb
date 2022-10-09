@@ -1,89 +1,74 @@
-class Person 
-    attr_accessor :name, :age, :job, :passport 
 
-    def initialize
+class Person
+    attr_accessor :name, :age, :job, :passport
+    def initialize()
+        print "Nhap ten: "
+        @name = gets.chomp
+        print "Nhap tuoi: "
+        @age = gets.to_i
+        print "Nhap nghe nghiep: "
+        @job = gets.chomp
+        print "Nhap cccd: "
+        @passport = gets.chomp
     end
 
-    def input
-        puts "Nhap ten : "
-        @name  = gets.to_s
-        puts "Nhap tuoi : "
-        @age  = gets.to_i
-        puts "Nhap nghe nghiep : "
-        @job  = gets.to_s
-        puts "Nhap CCCD : "
-        @passport  = gets.to_s
-    end
-
-    def display
-        puts"Ten = #{@name}"
-        puts"Tuoi = #{@age}"
-        puts"Nghe = #{@job}"
-        puts"Cccd = #{@passport}"
+    def toString
+        return "name=#{@name}, age= #{@age}, job=#{@job}, passport=#{@passport}"
     end
 end
 
-
-#family
-class Family < Person
-    attr_accessor :number, :home_number
+class Family
+    attr_accessor :persons, :address
 
     def initialize()
+        print "Nhap so thanh vien trong gia dinh: "
+        n = gets.to_i
         @persons = []
-    end
-
-    def input
-        puts"Nhap so nha"
-        @home_number = gets.to_s
-        puts"Nhap so thanh vien"
-        @number = gets.to_i
-        for i in 0..(@number-1)
-            puts"Nhap thanh vien thu #{i+1}"
+        for i in 1..n
+            puts "Nhap thanh vien thu #{i}:"
             person = Person.new
-            person.input()
             @persons << person
         end
+        print "Nhap dia chi: "
+        @address = gets.chomp
     end
-
-    def add (value)
-        @persons.push(value)
-    end
-
-    def display
-        puts"So thanh vien #{@number}"
-        puts"So nha #{@home_number}"
-        @persons.each{ |item| puts item.display}
+    
+    def toString
+        str = " "
+        i = 1
+        @persons.each{ |person| 
+            str += "Thanh vien #{i}{#{person.toString}}"
+            i += 1
+        }
+        return str
     end
 end
 
-#town
-class Town<Family
+class Town
+    attr_accessor :families
     def initialize()
+        print "Nhap so ho gia dinh trong thanh pho: "
+        n = gets.to_i
         @families = []
-    end
-
-    def input
-        puts"Nhap so ho gia dinh "
-        number_family = gets.to_i
-
-        for i in 0..(number_family-1)
+        for i in 1..n
+            puts "Nhap gia dinh thu #{i}:"
             family = Family.new
-            puts"Nhap ho gia dinh #{i+1}"
-            family.input
             @families << family
         end
     end
-    def add (value)
-        @families.push(value)
-    end
-
-    def display
-        @families.each{ |item| puts item.display}
+    
+    def toString
+        str = " "
+        i = 1
+        @families.each{ |family| 
+            str += "Gai dinh #{i}{#{family.toString}}\n"
+            i += 1
+        }
+        return str
     end
 end
 
-town = Town.new
-town.input
-puts "==Thong tin cac ho gia dinh=="
-town.display
+town  = Town.new
 
+puts "Hien thi danh sach gia dinh trong thanh pho:"
+puts town.toString
