@@ -16,9 +16,9 @@ class Student
     end
 
     def display
-        puts "Nhap ten: #{@name}"
-        puts "Nhap tuoi: #{@age}"
-        puts "Nhap dia chi: #{@address}"
+        puts "Hien ten: #{@name}"
+        puts "Hien tuoi: #{@age}"
+        puts "Hien dia chi: #{@address}"
     end
 end
 
@@ -45,7 +45,6 @@ class School < Student
     def display23vsDN
         count = 0
         @students.each do |item|
-            puts item.address
             if item.age == 23 && item.address == "DN"
                 count+=1;
             end     
@@ -59,9 +58,9 @@ while true
     puts "---Cac chuc nang chinh---"
     puts "Chon 1: Them moi hoc sinh"
     puts "Chon 2: Hien thi hoc sinh 20 tuoi: "
-    puts "Chon 3: Hien thi hoc sinh 23 tuoi o DN"
+    puts "Chon 3:Dem so luong 23 tuoi o DN"
     puts "Chon 4: Thoat chuong trinh"
-    print "Chon cong viec can thuc hien: "
+    print "Chon cong viec can thuc hien: "b8
     value  = gets.to_i
     case value
         when 1
@@ -78,7 +77,7 @@ while true
         when 3
             puts school.display23vsDN
         when 4
-            beark
+            break;
         else
             puts "Khong hop le"
     end
